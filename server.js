@@ -7,6 +7,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/', (req, res) => {
+  res.json({ message: 'Hello freecodecamp' });
+});
+
 const APIRoutes = require('./routes/api');
 
 app.use('/api', APIRoutes);
