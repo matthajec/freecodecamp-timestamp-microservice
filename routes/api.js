@@ -4,11 +4,11 @@ const convertToUTC = require('../util/convertToUTC');
 const router = express.Router();
 
 
-router.get('/timestamp/', (req, res) => {
+router.get('/', (req, res) => {
   res.json({ unix: Date.now(), utc: Date() });
 });
 
-router.get('/timestamp/:date', (req, res) => {
+router.get('/:date', (req, res) => {
   const dateString = req.params.date;
   try {
 
