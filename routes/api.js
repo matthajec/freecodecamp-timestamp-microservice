@@ -13,13 +13,16 @@ router.get("/:date_string", (req, res) => {
   if (/\d{5,}/.test(dateString)) {
     const dateInt = parseInt(dateString);
     //Date regards numbers as unix timestamps, strings are processed differently
+    console.log(`input: ${dateString} - unix: ${dateInt} - utc; ${new Date(dateInt).toUTCString()}`);
     res.json({ unix: dateInt, utc: new Date(dateInt).toUTCString() });
   } else {
     let dateObject = new Date(dateString);
 
     if (dateObject.toString() === "Invalid Date") {
+      console.log(`input ${dateString} - invalid date`);
       res.json({ error: "Invalid Date" });
     } else {
+      console.log(`input: ${dateString} - unix: ${dateObject.valueOf()} - utc; ${dateObject.toUTCString()}`);
       res.json({ unix: dateObject.valueOf(), utc: dateObject.toUTCString() });
     }
   }
