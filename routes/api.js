@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-router.get("/timestamp/", (req, res) => {
+router.get("/", (req, res) => {
   res.json({ unix: Date.now(), utc: Date() });
 });
 
-router.get("/timestamp/:date_string", (req, res) => {
+router.get("/:date_string", (req, res) => {
   let dateString = req.params.date_string;
 
   //A 4 digit number is a valid ISO-8601 for the beginning of that year
