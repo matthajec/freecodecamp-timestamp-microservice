@@ -2,8 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => {
-  res.json({ message: 'Hello freecodecamp' });
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://www.freecodecamp.org/');
+  next();
 });
 
 const APIRoutes = require('./routes/api');
