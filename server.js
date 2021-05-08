@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://www.freecodecamp.org/');
+  res.setHeader('Access-Control-Allow-Origin', 'https://www.freecodecamp.org');
   next();
 });
 
